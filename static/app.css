@@ -1,0 +1,140 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content:stretch;
+}
+header { 
+    padding: 1rem; 
+    text-align: center;
+    background-color: #0b0c1a;
+    color: #d8d8d8;
+    width: 100%;
+    margin: 0;
+}
+#title {
+    font-size: 4rem;
+}
+h1, .cntr{
+    text-align: center;
+}
+.description {
+    margin: 0.25rem 0 0;
+}
+main { 
+    flex: 1 0 auto;
+    min-height: 0;
+    padding: 2rem;
+    color: #c0bebe;
+    background-color: #131429;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+/* Header nav: remove default left padding and center items */
+header nav ul {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0;
+    margin-left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#schedule .day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#schedule ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0.25rem 0;
+    text-align: center;
+    padding: 0;
+}
+
+.nostyle {
+    text-decoration: none;
+    color: inherit;
+}
+Form, .authDiv {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1 0 auto;
+    min-height: 0;
+    padding: 2rem;
+    height: auto;
+}
+
+#courses, #schedule {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#courses>div, #schedule>div {
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    width: calc(33% - 2rem);
+    box-sizing: border-box;
+    background-color: #1e1f36;
+}
+.course-actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.course-actions>form {
+    margin: 0.5rem;
+    padding: 0;
+    width: min-content;
+}
+input {
+    margin: 1em;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+}
+button {
+    margin: 2rem 1rem 2rem 0;
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #d8d8d8;
+    background-color: #0b0c1a; 
+    font-size: 0.9rem;
+}

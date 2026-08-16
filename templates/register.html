@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="authDiv">
+    <h1>Register</h1>
+    <form type="Register" id="RegisterForm" method="post">
+        <div class="mb-3">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required placeholder="input your username">
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="input your password">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required placeholder="confirm your password">
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <a href="{{url_for('login')}}">Already have an account? Login here!</a>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% block content %}
+<h1>Home page</h1>
+<p class="cntr">Welcome to StudyHub.</p>
+<div class="container py-5">
+    <h2>Hi there {{ user.name }}!</h2>
+    <h3>Courses</h3>
+    <section id="courses">
+        {% for course in courses %}
+        <div class="course">
+            <h3>{{ course.name }}</h3>
+            <p>{{ course.description }}</p>
+            {%if course.links != "N/A"%}<p>Links: <a href="{{ course.links }}" target="_blank">{{ course.links }}</a></p>{% endif %}
+            <p>Day: {{ course.day }}</p>
+            <div class="course-actions">
+                <form method="post" action="/delete" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete {{ course.name }}?');">
+                    <input type="hidden" name="courseName" value="{{ course.name }}">
+                    <button class="btn btn-danger" type="submit">delete course</button>
+                </form>
+                <form method="get" action="/submit" style="display:inline;">
+                    <button class="btn btn-secondary" type="submit" name="courseName" value="{{ course.name }}">edit course</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <a href="{{ url_for('submit') }}"><button class="btn btn-primary" id="addCourse">add course</button></a>
+    <h3>Weekly Schedule</h3>
+    <section id="schedule" class="schedule">
+        {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+        <div class="day">
+            <h3>{{ day }}</h3>
+            <ul>
+                {% for course in courses if course.day == day %}
+                <li>{{ course.name }}</li>
+                {% endfor %}
+                {% if not courses|selectattr("day", "equalto", day)|list %}
+                <li>No courses scheduled</li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
